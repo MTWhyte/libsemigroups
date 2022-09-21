@@ -1129,7 +1129,7 @@ namespace libsemigroups {
             result.emplace_back(transp(k, i) * eps(i, j) * transp(k, i),
                                 eps(k, j));
             // Relations (b)
-            result.emplace_back(transp(j, k) * eps(i, j) * eps(j, k),
+            result.emplace_back(transp(j, k) * eps(i, j) * transp(j, k),
                                 eps(i, k));
             for (size_t l = 1; l <= n; ++l) {
               if (l == i or l == j or l == k) {
@@ -1146,7 +1146,6 @@ namespace libsemigroups {
       }
 
       std::vector<word_type> epsilon = {{n - 1}, {0, n - 1, 0}, {1, n - 1, 1}};
-      result.emplace_back(e12, e12 ^ 2);
       result.emplace_back(e12 * epsilon[1], e12);
       result.emplace_back(epsilon[1] * e12, epsilon[1]);
 
